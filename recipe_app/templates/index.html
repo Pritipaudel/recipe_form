@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Submission Form</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+</head>
+<body>
+    <div class="container">
+        <h2>New Recipe</h2>
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Recipe Name -->
+            <div class="form-group">
+                <label for="recipe_name">Recipe Name:</label>
+                <input type="text" id="recipe_name" name="recipe_name" placeholder="Enter recipe name" required>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="recipe_description" rows="5" placeholder="Write a short description of the recipe" required></textarea>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="recipe_image" accept="image/*" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </div>
+</body>
+</html>
